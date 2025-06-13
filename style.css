@@ -1,10 +1,27 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #e0ffe0;
-    color: #004d00;
+/* Modern Design System */
+:root {
+    --primary-color: #006400;
+    --primary-light: #008000;
+    --secondary-color: #004d00;
+    --accent-color: #bf1616;
+    --text-color: #2c3e50;
+    --light-bg: #f8f9fa;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
     margin: 0;
     padding: 0;
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: linear-gradient(135deg, #e0ffe0 0%, #f0fff0 100%);
     background-image: url("images/dec\ logo.png");
     background-size: 50vmax;
     background-attachment: fixed;
@@ -13,127 +30,281 @@ body {
     animation: fadeInBackground 2s ease-in-out;
 }
 
+/* Modern Header */
 header {
-    background-color: #006400;
-    padding: 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    padding: 2rem;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.5s ease-in-out;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+    z-index: 1;
 }
 
 header img {
-    height: 50px;
-    margin-right: 20px;
-    transition: transform 0.3s ease-in-out;
+    height: 60px;
+    margin-right: 1.5rem;
+    transition: var(--transition);
+    position: relative;
+    z-index: 2;
 }
 
 header img:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(5deg);
 }
 
 header h1 {
     margin: 0;
     color: #fff;
-    transition: color 0.5s ease-in-out;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 2;
 }
 
+/* Modern Navigation */
 nav {
-    display: flex;
-    justify-content: center;
-    background-color: #004d00;
-    padding: 10px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.5s ease-in-out;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav a {
-    color: #bf1616;
-    margin: 0 15px;
+    color: #fff;
+    margin: 0 1.5rem;
     text-decoration: none;
-    transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transition);
 }
 
 nav a:hover {
-    text-decoration: underline;
-    color: #ff6347;
-}
-
-.section {
-    padding: 20px;
-    background-color: rgba(224, 255, 224, 0.8);
-    transition: background-color 0.5s ease-in-out;
-}
-
-.dark-section {
-    background-color: rgba(204, 255, 204, 0.8);
-    padding: 20px;
-    transition: background-color 0.5s ease-in-out;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #004d00;
+    background: rgba(255,255,255,0.1);
     color: #fff;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    transform: translateY(-2px);
 }
 
-.highlight {
-    color: #32cd32;
-    transition: color 0.5s ease-in-out;
+/* Modern Sections */
+.section, .dark-section {
+    background: var(--card-bg);
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    max-width: 1200px;
+    width: 95%;
+    transition: var(--transition);
 }
 
+.section:hover, .dark-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Modern Drug Cards */
+.drug {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.drug:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.drug img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin: 1rem auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.drug img:hover {
+    transform: scale(1.02);
+}
+
+.drug h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: 0.5rem;
+}
+
+/* Modern Form Elements */
+form {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+    margin: 1rem 0;
+}
+
+textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,100,0,0.1);
+}
+
+button {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Modern Footer */
+footer {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* Modern Typography */
+h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-light);
+    border-radius: 2px;
+}
+
+/* Modern Lists */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+ul li::before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Animations */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section, .dark-section {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
     }
-    to {
-        opacity: 1;
+
+    header img {
+        margin: 0 0 1rem 0;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        padding: 0.5rem 0;
+    }
+
+    nav a {
+        margin: 0.5rem;
+        display: inline-block;
+    }
+
+    .section, .dark-section {
+        padding: 1.5rem;
+        margin: 1rem auto;
+    }
+
+    .drug {
+        padding: 1rem;
+    }
+
+    .drug img {
+        max-width: 100%;
     }
 }
 
-.section, .dark-section, header, footer {
-    animation: fadeIn 1s ease-in-out;
-}
+@media (max-width: 500px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
 
-@keyframes slideIn {
-    from {
-        transform: translateX(-100%);
+    nav a {
+        font-size: 0.9rem;
+        margin: 0.3rem;
     }
-    to {
-        transform: translateX(0);
-    }
-}
 
-nav a {
-    animation: slideIn 0.5s ease-in-out;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-header h1 {
-    animation: pulse 2s infinite;
-}
-
-@keyframes fadeInBackground {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
+    .section, .dark-section {
+        padding: 1rem;
     }
 }
