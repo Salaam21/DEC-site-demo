@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0ffe0;
+    color: #004d00;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    background-image: url("images/dec\ logo.png");
+    background-size: 50vmax;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: fadeInBackground 2s ease-in-out;
+}
+
+header {
+    background-color: #006400;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease-in-out;
+}
+
+header img {
+    height: 50px;
+    margin-right: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+header img:hover {
+    transform: scale(1.1);
+}
+
+header h1 {
+    margin: 0;
+    color: #fff;
+    transition: color 0.5s ease-in-out;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #004d00;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease-in-out;
+}
+
+nav a {
+    color: #bf1616;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #ff6347;
+}
+
+.section {
+    padding: 20px;
+    background-color: rgba(224, 255, 224, 0.8);
+    transition: background-color 0.5s ease-in-out;
+}
+
+.dark-section {
+    background-color: rgba(204, 255, 204, 0.8);
+    padding: 20px;
+    transition: background-color 0.5s ease-in-out;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #004d00;
+    color: #fff;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.highlight {
+    color: #32cd32;
+    transition: color 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.section, .dark-section, header, footer {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+nav a {
+    animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+header h1 {
+    animation: pulse 2s infinite;
+}
+
+@keyframes fadeInBackground {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
